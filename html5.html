@@ -1,0 +1,116 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> HTML5 </title>
+
+
+	<style>
+		.grid-box {
+			display:grid;
+			width: 100%;
+			height:100%;
+			grid-template-columns: 20% 60% 20%;
+			grid-template-rows: 15% 70% 20%;
+			} 
+	
+		header {
+			background-color:lightblue;
+			grid-column-start:1;
+			grid-column-end:4;
+			grid-row-start:1;
+			grid-row-end:2; 
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			}
+		
+		nav {
+			background-color:#A9BCF5;
+			grid-column-start:1;
+			grid-column-end:2;
+			grid-row-start:2;
+			grid-row-end:3; 
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			}
+		
+		main {
+			background-color:#A9A9F5;
+			grid-column-start:2;
+			grid-column-end:3;
+			grid-row-start:2;
+			grid-row-end:3; 
+			overflow:auto;
+			}
+		
+		aside {
+			background-color:#A9BCF5;
+			grid-column-start:3;
+			grid-column-end:4;
+			grid-row-start:2;
+			grid-row-end:3; 
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			}
+		
+		footer {
+			background-color:lightblue;
+			grid-column-start:1;
+			grid-column-end:4;
+			grid-row-start:3;
+			grid-row-end:4; 
+			display:flex;
+			justify-content:center;
+			align-items:center;
+			}
+			
+		h1 {
+			text-align:"center"
+			}
+		img {
+			object-fit:contain; 
+			width: 100%;
+			}
+		p {
+		font-size; 20;
+			}
+	</style>
+</head>
+<body>
+	<div class="grid-box">
+		<header>
+			<h1>
+			<p>
+			Holy Grail of Webdesign (header)
+			</p>
+			<h1>
+		</header>
+		<nav>
+			Navigation
+		</nav>
+		<main>
+			<img src="HolyGrail.png" alt="Holy Grail of Webdesign">
+			<p>
+			The holy grail refers to a web page layout which has multiple, equal height columns that are defined with style sheets. It is commonly desired and implemented, but for many years, the various ways in which it could be implemented with the current technologies all had drawbacks. Because of this, finding an optimal implementation was likened to searching for the elusive Holy Grail. 
+			The limitations of CSS and HTML, the desirability of semantically meaningful pages that rank well in search engines, and the deficiencies of various browsers combined historically to create a situation in which there was no way to create this type of layout that would be considered totally correct. As the underlying technologies did not provide a proper solution, web designers found various ways to work around the limitations. Common workarounds included changes in page structure, the addition of graphics, scripting, and the creative use of CSS. These methods were imperfect, inconvenient, and considered by some to be abuse of the web standards and their intent.
+
+			More recent web standards have provided much more complete and robust solutions for implementing this layout. In particular, the CSS Flexible Box Layout and CSS Grid Layout modules have both provided full solutions.
+		</p>
+		</main>
+		<aside>
+			<p>
+			 <ul>
+				<li a href="">Link 1</li>
+				<li a href="">Link 2</li>
+				<li a href="">Link 3</li>
+			</ul> 
+			</p>
+		</aside>
+		<footer>
+			Try it yourself! :)
+		</footer>
+	</div>
+</body>
+</html>
