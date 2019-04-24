@@ -19,9 +19,17 @@
 		}
 		
 		function encryptSmallLetter (code,schlussel){
+			
+			//Kleinbuchstaben
+			
+			if (code>=97 && code>=122) {
 			code+=schlussel; 
-			if (code>=122||code>=90) {
 			code-= 26; 
+			}
+			//Großbuchstaben
+			if (code<=65 && code<=90){
+			code+=schlussel; 
+			code+= 26;
 			}
 			return String.fromCharCode(code)
 		}
@@ -39,13 +47,21 @@
 			document.getElementById("ausgabe").innerHTML = "Das entschlüsselte Wort lautet " + ausgabe + "!";
 		}
 		
-		function encryptSmallLetterBackwards (code,schlussel){
-			code-=schlussel; 
-			if (code<=97||code<=65) {
-			code+= 26; 
+		function encryptSmallLetterBackwards (code,schlussel){ 
+			//Kleinbuchstaben
+			
+			if (code>=97 && code>=122) {
+			code-=schlussel;
+			code-= 26; 
+			}
+			//Großbuchstaben
+			if (code<=65 && code<=90){
+			code-=schlussel;
+			code+= 26;
 			}
 			return String.fromCharCode(code)
 		}
+		
 		
 	</script>
 
