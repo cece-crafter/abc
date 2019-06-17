@@ -1,0 +1,46 @@
+<html>
+<head>
+<meta charset="utf-8">
+		<title>Große Lösungsformel</title>
+<script>
+
+	function berechne() {
+
+		var ausgabeText = "";
+		var a = parseInt(document.getElementById("a").value);
+		var b = parseInt(document.getElementById("b").value);
+		var c = parseInt(document.getElementById("c").value);
+	
+		//var diskriminante = [-b -/+ Math.sqrt((b*b)-4ac) ] /2a
+		var diskriminante = ((b*b)- 4*a*c)
+		if(diskriminante < 0) {
+			ausgabeText = "Kein Ergebnis";
+		}
+		if(diskriminante == 0) {
+			var ergebnis = -b;
+			ausgabeText = "Das Ergebnis ist " + ergebnis;
+		}
+		if(diskriminante > 0) {
+			var x1 = (-b + Math.sqrt(diskriminante) )/(2*a);
+			var x2 = (-b - Math.sqrt(diskriminante))/(2*a);
+			ausgabeText = "Ergebnisse: x1 = " + x1 + "; x2 = " + x2;
+		}
+	
+		document.getElementById("ergebnis").innerHTML = ausgabeText;
+		}
+</script>
+</head>
+	
+<body>
+	<h1 style="font-family: Cooper Black";>Die große Lösungsformel</h1>
+			 <input type="text" id="a" style="width:40">
+		x² + <input type="text" id="b" style="width:40">
+		x  + <input type="text" id="c" style="width:40"> = 0
+	<br>
+		<input type="button" value="Ergebnis" onclick="berechne()">
+	<br>
+	<p id="ergebnis"; >Das Ergebnis ist: ... </p>
+
+</body>
+	
+</html>

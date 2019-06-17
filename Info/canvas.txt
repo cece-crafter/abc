@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta charset= "utf-8">
+<script src="p5.js"> </script>
+<script>
+	function setup(){
+		createCanvas(500,500);
+		fill(0)
+	}
+	
+	var x=0;
+	var y=0;
+	var width=100;
+	var height=100;
+	function draw() {
+		background("blue");
+	}
+	if(mouseIsPressed){
+		fill(color(Math.random()*255, Math.random()*255, Math.random()*255));
+		x=mouseX;
+		y=mouseY;
+	}
+	
+	y++;
+	rect (x,y, width, height)
+	
+	
+	
+</script>
+<style>
+	body{
+	margin:0;
+	}
+</style>
+</head>
+<body>
+</body>
+</html>

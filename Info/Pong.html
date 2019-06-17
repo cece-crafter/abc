@@ -1,0 +1,131 @@
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+  <style> body { margin: 0;} </style>
+ </head>
+ <body>
+<script>
+	
+var breite=500;
+var hoehe=500;
+
+// position variables
+var radius = 15;
+var x = 250;
+var y = 250;
+var yr1 = 250;
+var yr2 = 350;
+
+// velocity - Geschwindigkeit
+var vx = Math.random()*2+2;
+var vy = Math.random()*2+2;
+
+//Spielstand
+var count1 = 0;
+var count2 = 0;
+
+function setup() 
+{
+    createCanvas(breite, hoehe);
+    fill(0);
+	
+	textSize(40);
+}
+
+function draw() 
+{
+	background("lightblue");
+	
+	text('PONG', 200, 100);
+	text(count1 + ' - ' + count2, 200, 200);
+	
+    ballMove();
+    ellipse(x, y, 2*radius, 2*radius);
+	
+	rect(20,yr1, 20, 100);
+	rect(460,yr2, 20, 100);
+}
+
+function reset()
+{
+	x = 250;
+	y = 250;
+	
+	vx = Math.random()*2+2;
+	vy = Math.random()*2+2;
+	if(Math.random() >= 0.5) {
+		vx = -vx;
+	}
+	if(Math.random() >= 0.5) {
+		vy = -vy;
+	}
+}
+
+function ballMove()
+{
+	x = x + vx;
+	y = y + vy;
+	
+	checkKollision();
+	
+	if(x < radius){
+		count2++;
+		reset();
+	}
+	if(y < radius){
+		y = radius;
+		vy = -vy;
+	}
+	if(x > breite-radius){
+		count1++;
+		reset();
+	}
+	if(y > hoehe-radius){
+		y=hoehe-radius;
+		vy = -vy;
+	}
+}
+
+function checkKollision()
+{
+	if(x <= 55) // x: 20 + 20 + 15
+	{
+		if(y >= yr1 && y <= yr1+100)
+		{
+			vx = -vx;
+		}
+	}
+	if(x >= 445) // x: 500 - (20 + 20 + 15)
+	{
+		if(y >= yr2 && y <= yr2+100)
+		{
+			vx = -vx;
+		}
+	}
+}
+
+function keyPressed() 
+{
+	console.log(keyCode);
+	if (keyCode == 89) //Y
+	{
+		yr1 += 25;
+	} 
+	else if (keyCode == 87) //W
+	{
+		yr1 -= 25;
+	}
+	if (keyCode == DOWN_ARROW) 
+	{
+		yr2 += 25;
+	} 
+	else if (keyCode == UP_ARROW) 
+	{
+		yr2 -= 25;
+	}
+}
+
+</script>
+ </body>
+</html>

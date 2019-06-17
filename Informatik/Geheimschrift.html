@@ -1,0 +1,80 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title> Cäsar-Verschlüsselung </title>
+
+	<script>
+		function umwandeln() {
+			var wort=(document.getElementById("eingabe").value);
+			var schlussel= parseInt(document.getElementById("abstand").value);
+			var ausgabe="";
+			
+			for(var i =0; i<wort.length; i++) {
+				var code= wort.charCodeAt(i)
+				var neu= encryptSmallLetter (code,schlussel)
+				ausgabe+=neu
+				}
+		
+			document.getElementById("ausgabe").innerHTML = "Das verschlüsselte Wort lautet " + ausgabe + "!";
+		}
+		
+		function encryptSmallLetter (code,schlussel){
+			
+			//Kleinbuchstaben
+			
+			if (code>=97 && code>=122) {
+			code+=schlussel; 
+			code-= 26; https://www4.lernplattform.schule.at/borgnonntal/mod/assign/view.php?id=23313&action=editsubmission#
+			}
+			//Großbuchstaben
+			if (code<=65 && code<=90){
+			code+=schlussel; 
+			code+= 26;
+			}
+			return String.fromCharCode(code)
+		}
+		
+		function entschlusseln() {
+			var wort=(document.getElementById("eingabe").value);
+			var schlussel= parseInt(document.getElementById("abstand").value);
+			var ausgabe="";
+			for(var i =0; i<wort.length; i++) {
+				var code= wort.charCodeAt(i)
+				var neu= encryptSmallLetterBackwards (code,schlussel)
+				ausgabe+=neu
+				}
+		
+			document.getElementById("ausgabe").innerHTML = "Das entschlüsselte Wort lautet " + ausgabe + "!";
+		}
+		
+		function encryptSmallLetterBackwards (code,schlussel){ 
+			//Kleinbuchstaben
+			
+			if (code>=97 && code>=122) {
+			code-=schlussel;
+			code-= 26; 
+			}
+			//Großbuchstaben
+			if (code<=65 && code<=90){
+			code-=schlussel;
+			code+= 26;
+			}
+			return String.fromCharCode(code)
+		}
+		
+		
+	</script>
+
+</head> 
+<body>
+<h1 style="font-family: Cooper Black"> In Cäsar-Geheimcode umwandeln</h1> 
+<br>
+Schlüssel: <input type="number" id="abstand" style="width:40";>
+<br>
+<input type="text" id="eingabe" style="width:200px">
+<br>
+<input type="button" value="Verschlüsseln" onclick="umwandeln()">
+<input type="button" value="Entschlüsseln" onclick="entschlusseln()">
+<p id="ausgabe"> </p>
+</body> 
+</html>
