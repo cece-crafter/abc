@@ -1,0 +1,83 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bildergalerie</title>
+<script>
+var index = 0;
+var bilder = ["Emily1.jpeg", "EmmiWasser.jpg", "Muffin.jpg"];
+
+function nextImage(){
+	index++;
+	if(index >= bilder.length){
+		index = 0;
+	}
+	document.getElementById("bild").src = bilder[index];
+}
+
+function beforeImage(){
+	index--;
+	if(index < 0){
+		index = bilder.length - 1;
+	}
+	document.getElementById("bild").src = bilder[index];
+}
+
+</script>	
+<style>
+	body {
+		background-color: #BCA9F5;
+	}
+	
+	h1 {
+		font-family: Impact;
+		text-align: center;
+		color: white;
+	}
+	
+	.button {
+		position: absolute;
+		top:45%;
+		left:20;
+		background-color: lightblue;
+		border: 5px solid white;
+		color: white;
+		padding: 15px 30px;
+		text-align: center;
+		font-size: 15px;
+	}
+	
+	.buttonRight {
+		position: absolute;
+		top:45%;
+		right:20;
+		background-color: lightblue;
+		border: 5px solid white;
+		color: white;
+		padding: 15px 30px;
+		text-align: center;
+		font-size: 15px;
+	}
+	
+	img {
+		border: 5px solid white;
+		border-radius: 40px;
+		width: 80%;
+	}
+
+</style>
+	
+
+	
+</head>
+
+<body>
+
+<h1>Tiere</h1>
+<input type="button" class="button" value="<<<" onclick="beforeImage()">
+<input type="button" class="buttonRight" value=">>>" onclick="nextImage()">
+<center>
+<img id="bild" src="EmmiWasser.jpg">
+</center>
+</body>
+
+</html>
